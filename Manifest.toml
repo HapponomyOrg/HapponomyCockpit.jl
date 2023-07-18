@@ -2,7 +2,7 @@
 
 julia_version = "1.9.2"
 manifest_format = "2.0"
-project_hash = "115c8428fb2a5455801a472808219a2ce9ac68f4"
+project_hash = "7f4678b49adaad48a6c246123d51f451fd69ca00"
 
 [[deps.AbstractFFTs]]
 deps = ["LinearAlgebra"]
@@ -24,6 +24,22 @@ weakdeps = ["StaticArrays"]
     [deps.Adapt.extensions]
     AdaptStaticArraysExt = "StaticArrays"
 
+[[deps.Agents]]
+deps = ["CSV", "CommonSolve", "DataFrames", "DataStructures", "Distributed", "Distributions", "Downloads", "Graphs", "JLD2", "LazyArtifacts", "LightOSM", "LinearAlgebra", "Pkg", "ProgressMeter", "Random", "Rotations", "Scratch", "StaticArrays", "StatsBase"]
+git-tree-sha1 = "cd435f97f4a22661c4a03814e3c61a2e1b342a18"
+uuid = "46ada45e-f475-11e8-01d0-f70cc89e6671"
+version = "5.16.0"
+
+    [deps.Agents.extensions]
+    AgentsArrow = "Arrow"
+    AgentsOSMVisualizations = "OSMMakie"
+    AgentsVisualizations = "Makie"
+
+    [deps.Agents.weakdeps]
+    Arrow = "69666777-d1a9-59fb-9406-91d4454c9d45"
+    Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+    OSMMakie = "76b6901f-8821-46bb-9129-841bc9cfe677"
+
 [[deps.ArgParse]]
 deps = ["Logging", "TextWrap"]
 git-tree-sha1 = "3102bce13da501c9104df33549f511cd25264d7d"
@@ -33,6 +49,12 @@ version = "1.1.4"
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
 version = "1.1.1"
+
+[[deps.ArnoldiMethod]]
+deps = ["LinearAlgebra", "Random", "StaticArrays"]
+git-tree-sha1 = "62e51b39331de8911e4a7ff6f5aaf38a5f4cc0ae"
+uuid = "ec485272-7323-5ecc-a04f-4719b315124d"
+version = "0.2.0"
 
 [[deps.Arpack]]
 deps = ["Arpack_jll", "Libdl", "LinearAlgebra", "Logging"]
@@ -45,6 +67,11 @@ deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Op
 git-tree-sha1 = "5ba6c757e8feccf03a1554dfaf3e26b3cfc7fd5e"
 uuid = "68821587-b530-5797-8361-c406ea357684"
 version = "3.5.1+1"
+
+[[deps.ArrayTools]]
+git-tree-sha1 = "ca8c5218f18c5318827fdb1881f370249610f8d2"
+uuid = "1dc0ca97-c5ce-4e77-ac6d-c576ac9d7f27"
+version = "0.2.7"
 
 [[deps.Artifacts]]
 uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
@@ -86,6 +113,12 @@ deps = ["Tokenize"]
 git-tree-sha1 = "3ddd48d200eb8ddf9cb3e0189fc059fd49b97c1f"
 uuid = "00ebfdb7-1f24-5e51-bd34-a7502290713f"
 version = "3.3.6"
+
+[[deps.CSV]]
+deps = ["CodecZlib", "Dates", "FilePathsBase", "InlineStrings", "Mmap", "Parsers", "PooledArrays", "PrecompileTools", "SentinelArrays", "Tables", "Unicode", "WeakRefStrings", "WorkerUtilities"]
+git-tree-sha1 = "44dbf560808d49041989b8a96cae4cffbeb7966a"
+uuid = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+version = "0.10.11"
 
 [[deps.Cairo_jll]]
 deps = ["Artifacts", "Bzip2_jll", "CompilerSupportLibraries_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "JLLWrappers", "LZO_jll", "Libdl", "Pixman_jll", "Pkg", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Zlib_jll", "libpng_jll"]
@@ -152,6 +185,11 @@ deps = ["Crayons", "JSON", "PrecompileTools", "URIs"]
 git-tree-sha1 = "532c4185d3c9037c0237546d817858b23cf9e071"
 uuid = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
 version = "0.8.12"
+
+[[deps.CommonSolve]]
+git-tree-sha1 = "0eee5eb66b1cf62cd6ad1b460238e60e4b09400c"
+uuid = "38540f10-b2f7-11e9-35d8-d573e4eb0ff2"
+version = "0.2.4"
 
 [[deps.Compat]]
 deps = ["UUIDs"]
@@ -268,6 +306,14 @@ git-tree-sha1 = "5837a837389fccf076445fce071c8ddaea35a566"
 uuid = "fa6b7ba4-c1ee-5f82-b5fc-ecf0adba8f74"
 version = "0.6.8"
 
+[[deps.EconoSim]]
+deps = ["Agents", "Compat", "DataFrames", "DataStructures", "FixedPointDecimals", "Intervals", "Random", "Revise", "Todo", "UUIDs"]
+git-tree-sha1 = "9b3bbeb7c97b44cb5adb47337052845827d6e302"
+repo-rev = "main"
+repo-url = "https://github.com/HapponomyOrg/EconoSim.jl"
+uuid = "cc8cb6e0-4c11-4d04-b964-59e7aacda730"
+version = "0.2.1"
+
 [[deps.ExceptionUnwrapping]]
 deps = ["Test"]
 git-tree-sha1 = "e90caa41f5a86296e014e148ee061bd6c3edec96"
@@ -279,6 +325,11 @@ deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "4558ab818dcceaab612d1bb8c19cee87eda2b83c"
 uuid = "2e619515-83b5-522b-bb60-26c02a35a201"
 version = "2.5.0+0"
+
+[[deps.ExprTools]]
+git-tree-sha1 = "c1d06d129da9f55715c6c212866f5b1bddc5fa00"
+uuid = "e2ba6199-217a-4e67-a87a-7c52f15ade04"
+version = "0.1.9"
 
 [[deps.ExproniconLite]]
 deps = ["Pkg", "TOML"]
@@ -316,6 +367,12 @@ git-tree-sha1 = "c6033cc3892d0ef5bb9cd29b7f2f0331ea5184ea"
 uuid = "f5851436-0d7a-5f13-b9de-f02708fd171a"
 version = "3.3.10+0"
 
+[[deps.FileIO]]
+deps = ["Pkg", "Requires", "UUIDs"]
+git-tree-sha1 = "299dc33549f68299137e51e6d49a13b5b1da9673"
+uuid = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+version = "1.16.1"
+
 [[deps.FilePathsBase]]
 deps = ["Compat", "Dates", "Mmap", "Printf", "Test", "UUIDs"]
 git-tree-sha1 = "e27c4ebe80e8699540f2d6c805cc12203b614f12"
@@ -330,6 +387,12 @@ deps = ["LinearAlgebra", "Random", "SparseArrays", "Statistics"]
 git-tree-sha1 = "e5556303fd8c9ad4a8fceccd406ef3433ddb4c45"
 uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
 version = "1.4.0"
+
+[[deps.FixedPointDecimals]]
+deps = ["Parsers"]
+git-tree-sha1 = "d58aa8e85901dee0915262c1c2697c4037281982"
+uuid = "fb4d412d-6eee-574d-9565-ede6634db7b0"
+version = "0.4.3"
 
 [[deps.FixedPointNumbers]]
 deps = ["Statistics"]
@@ -465,6 +528,12 @@ git-tree-sha1 = "344bf40dcab1073aca04aa0df4fb092f920e4011"
 uuid = "3b182d85-2403-5c21-9c21-1e1f0cc25472"
 version = "1.3.14+0"
 
+[[deps.Graphs]]
+deps = ["ArnoldiMethod", "Compat", "DataStructures", "Distributed", "Inflate", "LinearAlgebra", "Random", "SharedArrays", "SimpleTraits", "SparseArrays", "Statistics"]
+git-tree-sha1 = "1cf1d7dcb4bc32d7b4a5add4232db3750c27ecb4"
+uuid = "86223c79-3864-5bf0-83f7-82e725a168b6"
+version = "1.8.0"
+
 [[deps.Grisu]]
 git-tree-sha1 = "53bb909d1151e57e2484c3d1b53e19552b887fb2"
 uuid = "42e2da0e-8278-4e71-bc24-59509adca0fe"
@@ -472,9 +541,9 @@ version = "1.0.2"
 
 [[deps.HTTP]]
 deps = ["Base64", "CodecZlib", "ConcurrentUtilities", "Dates", "ExceptionUnwrapping", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "OpenSSL", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
-git-tree-sha1 = "0eab7832affd4fcf1329c021ed9341765254704e"
+git-tree-sha1 = "cb56ccdd481c0dd7f975ad2b3b62d9eda088f7e2"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "1.9.12"
+version = "1.9.14"
 
 [[deps.HarfBuzz_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "Graphite2_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Pkg"]
@@ -496,9 +565,14 @@ version = "0.5.0"
 
 [[deps.HypergeometricFunctions]]
 deps = ["DualNumbers", "LinearAlgebra", "OpenLibm_jll", "SpecialFunctions"]
-git-tree-sha1 = "ce7ea9cc5db29563b1fe20196b6d23ab3b111384"
+git-tree-sha1 = "8125b8d5bd6ea3d23b217ccf60f5d57dcb019e8e"
 uuid = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
-version = "0.3.18"
+version = "0.3.20"
+
+[[deps.Inflate]]
+git-tree-sha1 = "5cd07aab533df5170988219191dfad0519391428"
+uuid = "d25df0c9-e2be-5dd7-82c8-3ad0b3e990b9"
+version = "0.1.3"
 
 [[deps.Inflector]]
 deps = ["Unicode"]
@@ -528,6 +602,12 @@ git-tree-sha1 = "721ec2cf720536ad005cb38f50dbba7b02419a15"
 uuid = "a98d9a8b-a2ab-59e6-89dd-64a1c18fca59"
 version = "0.14.7"
 
+[[deps.Intervals]]
+deps = ["Dates", "Printf", "RecipesBase", "Serialization", "TimeZones"]
+git-tree-sha1 = "ac0aaa807ed5eaf13f67afe188ebc07e828ff640"
+uuid = "d8418881-c3e1-53bb-8760-2df7ec849ed5"
+version = "1.10.0"
+
 [[deps.InvertedIndices]]
 git-tree-sha1 = "0dc7b50b8d436461be01300fd8cd45aa0274b038"
 uuid = "41ab1584-1d38-5bbf-9106-f11c6c58b48f"
@@ -542,6 +622,12 @@ version = "0.2.2"
 git-tree-sha1 = "a3f24677c21f5bbe9d2a714f95dcd58337fb2856"
 uuid = "82899510-4779-5014-852e-03e436cf321d"
 version = "1.0.0"
+
+[[deps.JLD2]]
+deps = ["FileIO", "MacroTools", "Mmap", "OrderedCollections", "Pkg", "Printf", "Reexport", "Requires", "TranscodingStreams", "UUIDs"]
+git-tree-sha1 = "5df8278ad24772c0c6dbbeb97b162ccf29ced2a9"
+uuid = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+version = "0.4.32"
 
 [[deps.JLFzf]]
 deps = ["Pipe", "REPL", "Random", "fzf_jll"]
@@ -726,6 +812,18 @@ git-tree-sha1 = "7f3efec06033682db852f8b3bc3c1d2b0a0ab066"
 uuid = "38a345b3-de98-5d2b-a5d3-14cd9215e700"
 version = "2.36.0+0"
 
+[[deps.LightOSM]]
+deps = ["DataStructures", "Graphs", "HTTP", "JSON", "LightXML", "MetaGraphs", "NearestNeighbors", "Parameters", "QuickHeaps", "SimpleWeightedGraphs", "SparseArrays", "SpatialIndexing", "StaticArrays", "StaticGraphs", "Statistics"]
+git-tree-sha1 = "9a4355c298afb938274d8559128fd22c020d242c"
+uuid = "d1922b25-af4e-4ba3-84af-fe9bea896051"
+version = "0.2.11"
+
+[[deps.LightXML]]
+deps = ["Libdl", "XML2_jll"]
+git-tree-sha1 = "e129d9391168c677cd4800f5c0abb1ed8cb3794f"
+uuid = "9c8b4983-aa76-5018-a973-4c85ecc9e179"
+version = "0.9.0"
+
 [[deps.LinearAlgebra]]
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
@@ -798,6 +896,12 @@ git-tree-sha1 = "c13304c81eec1ed3af7fc20e75fb6b26092a1102"
 uuid = "442fdcdd-2543-5da2-b0f3-8c86c306513e"
 version = "0.3.2"
 
+[[deps.MetaGraphs]]
+deps = ["Graphs", "JLD2", "Random"]
+git-tree-sha1 = "1130dbe1d5276cb656f6e1094ce97466ed700e5a"
+uuid = "626554b9-1ddb-594c-aa3c-2596fe9399a5"
+version = "0.7.2"
+
 [[deps.Millboard]]
 git-tree-sha1 = "ea6a5b7e56e76d8051023faaa11d91d1d881dac3"
 uuid = "39ec1447-df44-5f4c-beaa-866f30b4d3b2"
@@ -817,6 +921,12 @@ version = "0.1.2"
 
 [[deps.Mmap]]
 uuid = "a63ad114-7e13-5084-954f-fe012c677804"
+
+[[deps.Mocking]]
+deps = ["Compat", "ExprTools"]
+git-tree-sha1 = "4cc0c5a83933648b615c36c2b956d94fda70641e"
+uuid = "78c3b35d-d492-501b-9361-3d52fe80e533"
+version = "0.7.7"
 
 [[deps.MozillaCACerts_jll]]
 uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
@@ -1052,6 +1162,12 @@ version = "2.2.5"
 deps = ["Unicode"]
 uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 
+[[deps.ProgressMeter]]
+deps = ["Distributed", "Printf"]
+git-tree-sha1 = "d7a7aef8f8f2d537104f170139553b14dfe39fe9"
+uuid = "92933f4c-e287-5a05-a399-4b506db050ca"
+version = "1.7.2"
+
 [[deps.Qt5Base_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Fontconfig_jll", "Glib_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "OpenSSL_jll", "Pkg", "Xorg_libXext_jll", "Xorg_libxcb_jll", "Xorg_xcb_util_image_jll", "Xorg_xcb_util_keysyms_jll", "Xorg_xcb_util_renderutil_jll", "Xorg_xcb_util_wm_jll", "Zlib_jll", "xkbcommon_jll"]
 git-tree-sha1 = "0c03844e2231e12fda4d0086fd7cbe4098ee8dc5"
@@ -1063,6 +1179,18 @@ deps = ["DataStructures", "LinearAlgebra"]
 git-tree-sha1 = "6ec7ac8412e83d57e313393220879ede1740f9ee"
 uuid = "1fd47b50-473d-5c70-9696-f719f8f3bcdc"
 version = "2.8.2"
+
+[[deps.Quaternions]]
+deps = ["LinearAlgebra", "Random", "RealDot"]
+git-tree-sha1 = "da095158bdc8eaccb7890f9884048555ab771019"
+uuid = "94ee1d12-ae83-5a48-8b1c-48b8ff168ae0"
+version = "0.7.4"
+
+[[deps.QuickHeaps]]
+deps = ["ArrayTools", "DataStructures"]
+git-tree-sha1 = "ff720a9c8356004cc9e3d109cdcb327510345edc"
+uuid = "30b38841-0f52-47f8-a5f8-18d5d4064379"
+version = "0.1.2"
 
 [[deps.REPL]]
 deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
@@ -1081,6 +1209,12 @@ weakdeps = ["FixedPointNumbers"]
 
     [deps.Ratios.extensions]
     RatiosFixedPointNumbersExt = "FixedPointNumbers"
+
+[[deps.RealDot]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "9f0a1b71baaf7650f4fa8a1d168c7fb6ee41f0c9"
+uuid = "c1ae055f-0cd5-4b69-90a6-9a35b1a98df9"
+version = "0.1.0"
 
 [[deps.RecipesBase]]
 deps = ["PrecompileTools"]
@@ -1141,6 +1275,12 @@ git-tree-sha1 = "6ed52fdd3382cf21947b15e8870ac0ddbff736da"
 uuid = "f50d1b31-88e8-58de-be2c-1cc44531875f"
 version = "0.4.0+0"
 
+[[deps.Rotations]]
+deps = ["LinearAlgebra", "Quaternions", "Random", "StaticArrays"]
+git-tree-sha1 = "54ccb4dbab4b1f69beb255a2c0ca5f65a9c82f08"
+uuid = "6038ab10-8711-5258-84ad-4b1120ba62dc"
+version = "1.5.1"
+
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
@@ -1175,6 +1315,18 @@ git-tree-sha1 = "874e8867b33a00e784c8a7e4b60afe9e037b74e1"
 uuid = "777ac1f9-54b0-4bf8-805c-2214025038e7"
 version = "1.1.0"
 
+[[deps.SimpleTraits]]
+deps = ["InteractiveUtils", "MacroTools"]
+git-tree-sha1 = "5d7e3f4e11935503d3ecaf7186eac40602e7d231"
+uuid = "699a6c99-e7fa-54fc-8d76-47d257e15c1d"
+version = "0.9.4"
+
+[[deps.SimpleWeightedGraphs]]
+deps = ["Graphs", "LinearAlgebra", "Markdown", "SparseArrays"]
+git-tree-sha1 = "4b33e0e081a825dbfaf314decf58fa47e53d6acb"
+uuid = "47aef6b3-ad0c-573a-a1e2-d07658019622"
+version = "1.4.0"
+
 [[deps.SnoopPrecompile]]
 deps = ["Preferences"]
 git-tree-sha1 = "e760a70afdcd461cf01a575947738d359234665c"
@@ -1193,6 +1345,11 @@ version = "1.1.1"
 [[deps.SparseArrays]]
 deps = ["Libdl", "LinearAlgebra", "Random", "Serialization", "SuiteSparse_jll"]
 uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+
+[[deps.SpatialIndexing]]
+git-tree-sha1 = "bacf5065cd7c0d6449b8bba6fa8e75b3087356b0"
+uuid = "d4ead438-fe20-5cc5-a293-4fd39a41b74c"
+version = "0.1.5"
 
 [[deps.SpecialFunctions]]
 deps = ["IrrationalConstants", "LogExpFunctions", "OpenLibm_jll", "OpenSpecFun_jll"]
@@ -1218,6 +1375,12 @@ weakdeps = ["Statistics"]
 git-tree-sha1 = "1d5708d926c76a505052d0d24a846d5da08bc3a4"
 uuid = "1e83bf80-4336-4d27-bf5d-d5a4f845583c"
 version = "1.4.1"
+
+[[deps.StaticGraphs]]
+deps = ["Graphs", "JLD2", "SparseArrays"]
+git-tree-sha1 = "855371d8fdfaed46dbb32a7c57a42db4441b9247"
+uuid = "4c8beaf5-199b-59a0-a7f2-21d17de635b6"
+version = "0.3.0"
 
 [[deps.Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
@@ -1352,6 +1515,18 @@ git-tree-sha1 = "9250ef9b01b66667380cf3275b3f7488d0e25faf"
 uuid = "b718987f-49a8-5099-9789-dcd902bef87d"
 version = "1.0.1"
 
+[[deps.TimeZones]]
+deps = ["Dates", "Downloads", "InlineStrings", "LazyArtifacts", "Mocking", "Printf", "RecipesBase", "Scratch", "Unicode"]
+git-tree-sha1 = "cdaa0c2a4449724aded839550eca7d7240bb6938"
+uuid = "f269a46b-ccf7-5d73-abea-4c690281aa53"
+version = "1.10.0"
+
+[[deps.Todo]]
+deps = ["Dates", "Test"]
+git-tree-sha1 = "f73f62d4b2ba21649d237722507f9b0ccc9d8b94"
+uuid = "b28a226c-6cff-11e9-1336-699fd753ab00"
+version = "0.1.0"
+
 [[deps.Tokenize]]
 git-tree-sha1 = "90538bf898832b6ebd900fa40f223e695970e3a5"
 uuid = "0796e94c-ce3b-5d07-9a54-7f471281c624"
@@ -1429,6 +1604,12 @@ git-tree-sha1 = "4528479aa01ee1b3b4cd0e6faef0e04cf16466da"
 uuid = "2381bf8a-dfd0-557d-9999-79630e7b1b91"
 version = "1.25.0+0"
 
+[[deps.WeakRefStrings]]
+deps = ["DataAPI", "InlineStrings", "Parsers"]
+git-tree-sha1 = "b1be2855ed9ed8eac54e5caff2afcdb442d52c23"
+uuid = "ea10d353-3f73-51f8-a26c-33c1cb351aa5"
+version = "1.4.2"
+
 [[deps.WebIO]]
 deps = ["AssetRegistry", "Base64", "Distributed", "FunctionalCollections", "JSON", "Logging", "Observables", "Pkg", "Random", "Requires", "Sockets", "UUIDs", "WebSockets", "Widgets"]
 git-tree-sha1 = "0eef0765186f7452e52236fa42ca8c9b3c11c6e3"
@@ -1452,6 +1633,11 @@ deps = ["LinearAlgebra", "SparseArrays"]
 git-tree-sha1 = "de67fa59e33ad156a590055375a30b23c40299d3"
 uuid = "efce3f68-66dc-5838-9240-27a6d6f5f9b6"
 version = "0.5.5"
+
+[[deps.WorkerUtilities]]
+git-tree-sha1 = "cd1659ba0d57b71a464a29e64dbc67cfe83d54e7"
+uuid = "76eceee3-57b5-4d4a-8e66-0e911cebbf60"
+version = "1.6.1"
 
 [[deps.XML2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "Zlib_jll"]

@@ -1,43 +1,23 @@
 module App
 
-include("overshoot.jl")
-
 using GenieFramework
-using Dates
-using DataFrames
-using .Overshoot
 @genietools
 
-df = create_df()
+include("home.jl")
+using .Home
 
-function filter_df(df)
-    nf = DataFrames.select(df, [:year, :overshoot_date, :rounded_weight, :rounded_overshoot_days, :rounded_cumulative_overshoot_days])
-    rename!(nf, :year => :Year)
-    rename!(nf, :overshoot_date => :"Overshoot date")
-    rename!(nf, :rounded_weight => :Weight)
-    rename!(nf, :rounded_overshoot_days => :"Overshoot days")
-    rename!(nf, :rounded_cumulative_overshoot_days => :"Cumulative overshoot days")
+include("overshoot.jl")
+using .Overshoot
 
-    return nf
-end
+include("keynes_sim.jl")
+using .KeynesSim
 
-@app begin
-    @in consumption_date = today()
+include("inequality.jl")
+using .Inequality
 
-    @out consumed_on = string(calculate_used_date(today(), df))
-    @out consuming = string(calculate_using_date(today(), df))
+Genie.Renderers.Html.register_normal_element(:marquee)
 
-    @in day_weights = PlotData[PlotData(x = df.year, y = df.rounded_weight)]
-    @in overshoot_days = PlotData(x = df.year, y = df.rounded_overshoot_days)
-    @in cumulative_overshoot_days = PlotData(x = df.year, y = df.rounded_cumulative_overshoot_days)
-    
-    @in table = DataTable(filter_df(df))
-
-    @onchange consumption_date begin
-        consumed_on = string(calculate_used_date(consumption_date))
-        consuming = string(calculate_using_date(consumption_date))
-    end
-end
-
-@page("/", "app.jl.html")
+@page("/overshoot", "overshoot.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Overshoot)
+@page("/keynes_sim", "keynes_sim.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.KeynesSim)
+@page("/inequality", "inequality.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Inequality)
 end
