@@ -1,6 +1,23 @@
 <div class="row">
-    <div class="st-col col-12 st-module">
-        <p>Column content</p>
-        <q-btn v-model="button" :label="Button" id="ire5">Your Text Here</q-btn>
+    <div class="st-col col-4 col-sm st-module">
+        <h2>Simulation parameters</h2><br />
+        <q-checkbox v-model="lock_random_generator" label="Lock random generator"></q-checkbox>
+        <q-input v-model="sim_length" label="Simulation length" type="number" filled></q-input>
+        <q-input v-model="num_agents" label="Number of agents" type="number" filled></q-input>
+        <q-input v-model="transactions_per_cycle" label="Transactions per cycle" type="number" filled></q-input>
+    </div>
+    <div class="st-col col-4 col-sm st-module">
+        <h2>Displayed percentiles</h2><br />
+        <q-checkbox v-model="display_top_1" label="Display top 1%"></q-checkbox><br />
+        <q-checkbox v-model="display_top_10" label="Display top 10%"></q-checkbox><br />
+        <q-checkbox v-model="display_middle_40" label="Display middle 40%"></q-checkbox><br />
+        <q-checkbox v-model="display_bottom_50" label="Display bottom 50%"></q-checkbox><br />
+        <q-checkbox v-model="display_bottom_10" label="Display bottom 10%"></q-checkbox>
+    </div>
+    <div class="st-col col-4 col-sm st-module">
+        <h2>Simulation model</h2><br />
+    </div>
+    <div class="st-col col-4 col-sm st-module">
+        <h2>Model parameters</h2><br />
     </div>
 </div>

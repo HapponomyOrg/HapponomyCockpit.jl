@@ -1,0 +1,11 @@
+<div
+    style="display: flex; justify-content: space-between; align-items: center; background-color: #112244; padding: 10px 50px; color: #ffffff; top: 0; width: 100%; box-sizing: border-box;">
+    <div style="font-size: 1.5em; font-weight: bold;">Happonomy Cockpit</div>
+    <div style="display: flex; gap: 20px;">
+        <a href="/home/" style="text-decoration: none; color: #ffffff;">Home</a>
+        <a href="/inequality/" style="text-decoration: none; color: #ffffff;">Inequality Simulation</a>
+        <a href="/keynes_sim/" style="text-decoration: none; color: #ffffff;">Keynes Simulation</a>
+        <a href="/overshoot/" style="text-decoration: none; color: #ffffff;">Cumulative overshoot</a>
+    </div>
+</div>
+<% page(model, partial=true, v__cloak=true, [@yield], @iif(:isready)) %>
