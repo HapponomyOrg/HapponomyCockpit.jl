@@ -15,8 +15,6 @@ end
     @out button
 end
 
-@onchange button do
-    @show "button"
-end
+@page("/", "app.jl.html")
 
 end

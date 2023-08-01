@@ -3,21 +3,25 @@ module App
 using GenieFramework
 @genietools
 
-include("home.jl")
+include("app/home/app.jl")
 using .Home
 
-include("overshoot.jl")
-using .Overshoot
-
-include("keynes_sim.jl")
-using .KeynesSim
-
-include("inequality.jl")
+include("app/inequality/app.jl")
 using .Inequality
 
-Genie.Renderers.Html.register_normal_element(:marquee)
+include("app/keynes_sim/app.jl")
+using .KeynesSim
 
-@page("/overshoot", "overshoot.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Overshoot)
-@page("/keynes_sim", "keynes_sim.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.KeynesSim)
-@page("/inequality", "inequality.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Inequality)
+include("app/overshoot/app.jl")
+using .Overshoot
+
+@page("/home", "app/home/app.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Home)
+@page("/inequality", "app/inequality/app.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Inequality)
+@page("/keynes_sim", "app/keynes_sim/app.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.KeynesSim)
+@page("/overshoot", "app/overshoot/app.jl.html", Stipple.ReactiveTools.DEFAULT_LAYOUT(), Main.App.Overshoot)
+
+route("/") do
+    redirect(:get_home)    
+end
+
 end

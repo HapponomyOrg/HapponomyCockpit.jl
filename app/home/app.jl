@@ -6,5 +6,5 @@ using GenieFramework
 @app begin
 end
 
-@page("/", "home.jl.html")
+@page("/", "app.jl.html")
 end

@@ -12,4 +12,6 @@ using EconoSim
     @in net_profit = 0.01
 end
 
+@page("/", "app.jl.html")
+
 end

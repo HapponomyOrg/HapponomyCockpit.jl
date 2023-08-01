@@ -228,4 +228,6 @@ df = create_df()
     end
 end
 
+@page("/", "app.jl.html")
+
 end
