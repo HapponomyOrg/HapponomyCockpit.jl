@@ -14,12 +14,12 @@
     </div>
 </div>
 <div class="row">
-    <div id="iuenf" draggable="true" class="st-col col-4 st-module">
+    <div id="iuenf" draggable="true" class="st-col col-5 st-module">
         <h2>Consumption date</h2>
         <div></div>
         <q-date v-model="consumption_date" mask="YYYY-MM-DD"></q-date>
     </div>
-    <div id="ilgzg" draggable="true" class="st-col col-4 st-module">
+    <div id="ilgzg" draggable="true" class="st-col col-5 st-module">
         <h2>Consumed on</h2>
         <p>The date on which the resources available for the selected date were already consumed.</p>
         <p v-text="consumed_on">Default content</p>
@@ -29,7 +29,7 @@
     </div>
 </div>
 <div class="row">
-    <div id="imj91" draggable="true" class="st-col col-8 st-module">
+    <div id="imj91" draggable="true" class="st-col col-10 st-module">
         <h2 id="i5emy" draggable="true">Weight of day per year
         </h2>
         <p>The weight of a day, based on the Earth Overshoot Day of that year.</p>
@@ -37,7 +37,7 @@
     </div>
 </div>
 <div class="row">
-    <div id="ir9af" draggable="true" class="st-col col-8 st-module">
+    <div id="ir9af" draggable="true" class="st-col col-10 st-module">
         <h2 id="iy40g" draggable="true">Overshoot days per year
         </h2>
         <p>The number of overshoot days for each year.</p>
@@ -45,14 +45,14 @@
     </div>
 </div>
 <div class="row">
-    <div class="st-col col-8 st-module">
+    <div class="st-col col-10 st-module">
         <h2>Cumulative overshoot days</h2>
         <p>The cumulative number of overshoot days for each year. It&#039;s the sum of the number of overshoot days for a given year and all the years before.</p>
         <plotly :data="cumulative_overshoot_days"></plotly>
     </div>
 </div>
 <div class="row">
-    <div id="i7e36" draggable="true" class="st-col col-8 st-module">
+    <div id="i7e36" draggable="true" class="st-col col-10 st-module">
         <h2 id="iim46" draggable="true">Data
         </h2>
         <p>An overview of the full data per year.</p>
