@@ -58,7 +58,8 @@ OVERSHOOT_DATES = [
     Date(2019, 7, 29),
     Date(2020, 8, 22),
     Date(2021, 7, 29),
-    Date(2022, 7, 28)
+    Date(2022, 7, 28),
+    Date(2023, 8, 2)
 ]
 
 function create_df()
@@ -204,6 +205,12 @@ function filter_df(df)
     rename!(nf, :rounded_weight => :Weight)
     rename!(nf, :rounded_overshoot_days => :"Overshoot days")
     rename!(nf, :rounded_cumulative_overshoot_days => :"Cumulative overshoot days")
+
+    nf.consumed_on = calculate_used_date.(df.overshoot_date, Ref(df))
+    nf.consuming = calculate_using_date.(df.overshoot_date, Ref(df))
+
+    rename!(nf, :consumed_on => :"Consumed on")
+    rename!(nf, :consuming => :"Consuming")
 
     return nf
 end
