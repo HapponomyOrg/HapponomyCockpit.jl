@@ -1,10 +1,19 @@
-<div id="iey0e" draggable="true" class="row">
-    <div id="i5sra" draggable="true" class="st-col col-8 col-sm st-module">
+<div id="i5axj" draggable="true" class="row">
+    <div id="in10n" draggable="true" class="st-col col-10 col-sm st-module">
         <h1 id="il98q" draggable="true">Cumulative overshoot
         </h1>
+        <p id="igqb5" draggable="true">Every year there is a date where we have consumed all the resources the earth can produce in a full year. That date is called the
+            <a id="ix3ow" draggable="true" href="https://www.overshootday.org">Earth Overshoot Day</a>. If we want to avoid depleting our resources, that date must be the last day of the year, or llater. In the latter case we would be regenerating resources. Since 1972 Earth Overshoot Day occurs before the end of the year and the trend is that it comes earlier and earlier in the year, with a clear exception during the pandemic. That means we are aeting away at the resource production capacity of our planet, which automatically leads to Earth Overshoot Day occurring earlier in the year. It&#039;s a downward spiral.
+        </p>
+        <p id="iztgv" draggable="true">The earth does not reset itself on January the 1st. That means the effects are cumulative. The overshoot is carried over to the next year. This simulation calculates that cumulative overshoot. This is done by calculating the weight of the days for each year. When the Earth Overshoot Day is the 31st of December, the weight of a day is 1. If it is halfway through the year, which would be the 1st of July in a non-leap year, the weight of a day is 2 for that year. Using these weights, the date that the available resources for the selected date were already consumed and the date that we would have these resources available, should all days have a weight of 1, are calculated. 
+        </p>
+        <p id="i2yzo" draggable="true">Let&#039;s look at an example of 1 non-leap year when the Overshoot Day is July the 1st and thus the weight of a day is 2. On the Overshoot Day, all the resources for that year have been consumed. By the end of that year, 364 days x 2 worth of resources would haven been consumed. Thus, on the 31st of December of that year we would be using up the resources we should not be using until the 31st of December of the next year. If the weight of a day in the next year is also 2, then on the 1st of January of the following year, the resources of the 2nd January of the year after are actually used. This is the &#039;Consuming&#039; date in the simulation below.
+        </p>
+        <p id="ivpg7" draggable="true">It is also possible to calculate the day on which the resources of the selected date were already used up. Taking the example above, the resources for the 1st of July, should the weight of a day be 1, were already used up on the 1st of April (day 91) of that year. This is the &#039;Consumed on&#039; date in the simulation below.
+        </p>
     </div>
 </div>
-<div id="i6zpj" draggable="true" class="row">
+<div class="row">
     <div id="iuenf" draggable="true" class="st-col col-4 st-module">
         <h2>Consumption date</h2>
         <div></div>
@@ -12,8 +21,10 @@
     </div>
     <div id="ilgzg" draggable="true" class="st-col col-4 st-module">
         <h2>Consumed on</h2>
+        <p>The date on which the resources available for the selected date were already consumed.</p>
         <p v-text="consumed_on">Default content</p>
         <h2>Consuming<br /></h2>
+        <p>If all day weights are 1, this is the date that we would be consuming the resources for the selected date.</p>
         <p v-text="consuming">Default content</p>
     </div>
 </div>
@@ -21,6 +32,7 @@
     <div id="imj91" draggable="true" class="st-col col-8 st-module">
         <h2 id="i5emy" draggable="true">Weight of day per year
         </h2>
+        <p>The weight of a day, based on the Earth Overshoot Day of that year.</p>
         <plotly id="ijjsd" draggable="true" :data="day_weights"><img src="images/icons/components/ui_components/chart.png" /></plotly>
     </div>
 </div>
@@ -28,12 +40,14 @@
     <div id="ir9af" draggable="true" class="st-col col-8 st-module">
         <h2 id="iy40g" draggable="true">Overshoot days per year
         </h2>
+        <p>The number of overshoot days for each year.</p>
         <plotly id="ilow6" draggable="true" :data="overshoot_days"><img src="images/icons/components/ui_components/chart.png" /></plotly>
     </div>
 </div>
 <div class="row">
     <div class="st-col col-8 st-module">
         <h2>Cumulative overshoot days</h2>
+        <p>The cumulative number of overshoot days for each year. It&#039;s the sum of the number of overshoot days for a given year and all the years before.</p>
         <plotly :data="cumulative_overshoot_days"></plotly>
     </div>
 </div>
@@ -41,6 +55,7 @@
     <div id="i7e36" draggable="true" class="st-col col-8 st-module">
         <h2 id="iim46" draggable="true">Data
         </h2>
+        <p>An overview of the full data per year.</p>
         <q-table id="iv594" draggable="true" :data="table.data" :columns="table.columns">
         </q-table>
     </div>
