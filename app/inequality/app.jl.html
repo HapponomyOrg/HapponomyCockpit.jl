@@ -2,9 +2,9 @@
     <div class="st-col col-4 col-sm st-module">
         <h2>Simulation parameters</h2><br />
         <q-checkbox v-model="lock_random_generator" label="Lock random generator"></q-checkbox>
-        <q-input v-model="sim_length" label="Simulation length" type="number" filled></q-input>
-        <q-input v-model="num_agents" label="Number of agents" type="number" filled></q-input>
-        <q-input v-model="transactions_per_cycle" label="Transactions per cycle" type="number" filled></q-input>
+        <q-input v-model="sim_length" label="Simulation length" type="number" filled=""></q-input>
+        <q-input v-model="num_agents" label="Number of agents" type="number" filled=""></q-input>
+        <q-input v-model="transactions_per_cycle" label="Transactions per cycle" type="number" filled=""></q-input>
     </div>
     <div class="st-col col-4 col-sm st-module">
         <h2>Displayed percentiles</h2><br />
@@ -16,8 +16,6 @@
     </div>
     <div class="st-col col-4 col-sm st-module">
         <h2>Simulation model</h2><br />
-    </div>
-    <div class="st-col col-4 col-sm st-module">
-        <h2>Model parameters</h2><br />
+        <q-select v-model="sim_model" :options = ":sim_model_options"></q-select>
     </div>
 </div>
