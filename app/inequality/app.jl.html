@@ -5,7 +5,8 @@
             <q-card-section>
                 <q-checkbox v-model="lock_random_generator" label="Lock random generator"></q-checkbox>
             </q-card-section>
-        </q-card><br />
+        </q-card><br/>
+
         <q-card class="full-width">
             <q-card-section>
                 <h3>Simulation length</h3>
@@ -20,6 +21,7 @@
                             snap>
                 </q-slider>
             </q-card-section>
+
             <q-card-section>
                 <h3>Number of agents</h3>
                 <q-slider v-model="num_agents"
@@ -33,10 +35,12 @@
                             snap>
                 </q-slider>
             </q-card-section>
+
             <q-card-section>
                 <h3>Transactions per cycle</h3>
                 <q-checkbox v-model="transaction_range" label="Transaction range"></q-checkbox>
             </q-card-section>
+
             <q-card-section>
                 <q-range v-model="transaction_range_per_cycle"
                         v-if="transaction_range"
@@ -62,6 +66,7 @@
             </q-card-section>
         </q-card>
     </div>
+
     <div class="st-col col-4 col-sm st-module">
         <h2>Simulation model</h2>
         <q-card class="full-width">
@@ -69,22 +74,24 @@
                 <q-select v-model="sim_model" :model-value="sim_model_options" :options="sim_model_options"></q-select>
             </q-card-section>
         </q-card><br/>
+
         <q-card class="full-width" v-if="sim_model==sim_model_options[0]">
             <q-card-section>
+                <h3>Standard parameters</h3>
                 <q-input v-model="initial_wealth" label="Initial wealth" type="Number"></q-input>
             </q-card-section>
         </q-card>
+
         <q-card class="full-width" v-if="sim_model==sim_model_options[1]">
             <q-card-section>
                 <h3>SuMSy parameters</h3>
                 <q-input v-model="guaranteed_income" label="Guaranteed income" type="Number" :step="100"></q-input>
             </q-card-section>
             <q-card-section>
-                <div class="row" v-for="dem_tier, index in dem_tiers">
-                    
+                <div class="row" v-for="dem_tier, index in dem_tiers">                    
                     <q-input v-model="dem_tiers[index]" dense label="Demurrage tier {{index + 1}}" type="Number" :step="1000"></q-input>
                     <p>&nbsp;</p>
-                    <q-input v-model="dem_percentages[index]" dense label="Demurrage" type="Number" suffix="%"></q-input>
+                    <q-input v-model="dem_percentages[index]" dense label="Demurrage" type="Number" step="0.01" suffix="%"></q-input>
                 </div>
             </q-card-section>
             <q-card-section>
@@ -92,7 +99,15 @@
                 <q-btn color="primary" style="margin-top:5px;margin-bottom:5px;" v-on:click="remove_dem_tier = !remove_dem_tier" :loading="processing" label="Remove tier" />
             </q-card-section>
         </q-card>
+
+        <q-card class="full-width" v-if="sim_model==sim_model_options[2]">
+            <q-card-section>
+                <h3>Debt based parameters</h3>
+                <q-input v-model="initial_wealth" label="Initial wealth" type="Number"></q-input>
+            </q-card-section>
+        </q-card>
     </div>
+
     <div class="st-col col-4 col-sm st-module">
         <h2>Displayed percentiles</h2>
         <q-card class="full-width">
