@@ -2,11 +2,11 @@ module Overshoot
 
 using Mongoc
 
-pw = "M2fBeDJwHkJ0Uv4r"
-uri = "mongodb+srv://stef:M2fBeDJwHkJ0Uv4r@happonomycluster.rftavk7.mongodb.net/?retryWrites=true&w=majority"
+pw = "kYGapDxZDM6Jkp4NTpcvRVsnMKgbPKXA7wJwrfPTTgioGupEdmKZd"
+uri = "mongodb+srv://stef:" * pw * "@happonomycluster.rftavk7.mongodb.net/?retryWrites=true&w=majority"
 suffix = "&tlsCAFile=/usr/local/etc/openssl/cert.pem" # Probably needs to change when deployed on a server.
 
-client = MongoClient(uri * suffix)
+client = Mongoc.Client(uri * suffix)
 db = client["overshoot_data"]
 collection = db["_world_data"]
 

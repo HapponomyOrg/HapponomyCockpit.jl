@@ -220,8 +220,8 @@ df = create_df()
 @app begin
     @in consumption_date = today()
 
-    @out consumed_on = string(calculate_used_date(today(), df))
-    @out consuming = string(calculate_using_date(today(), df))
+    @out consumed_on = calculate_used_date(today(), df)
+    @out consuming = calculate_using_date(today(), df)
 
     @in day_weights = PlotData[PlotData(x = df.year, y = df.rounded_weight)]
     @in overshoot_days = PlotData(x = df.year, y = df.rounded_overshoot_days)
@@ -230,8 +230,8 @@ df = create_df()
     @in table = DataTable(filter_df(df))
 
     @onchange consumption_date begin
-        consumed_on = string(calculate_used_date(consumption_date))
-        consuming = string(calculate_using_date(consumption_date))
+        consumed_on = calculate_used_date(consumption_date)
+        consuming = calculate_using_date(consumption_date)
     end
 end
 

@@ -14,18 +14,16 @@
     </div>
 </div>
 <div class="row">
-    <div id="iuenf" draggable="true" class="st-col col-5 st-module">
+    <div id="iuenf" draggable="true" class="st-col col-10 st-module">
         <h2>Consumption date</h2>
-        <div></div>
-        <q-date v-model="consumption_date" mask="YYYY-MM-DD"></q-date>
-    </div>
-    <div id="ilgzg" draggable="true" class="st-col col-5 st-module">
+        <p>The date for which to calculate the overshoot dates.</p>
+        <q-input v-model="consumption_date" type="date"></q-input>
         <h2>Consumed on</h2>
         <p>The date on which the resources available for the selected date were already consumed.</p>
-        <p v-text="consumed_on">Default content</p>
+        <q-input v-model="consumed_on" type="date" readonly></q-input>
         <h2>Consuming<br /></h2>
         <p>If all day weights are 1, this is the date that we would be consuming the resources for the selected date.</p>
-        <p v-text="consuming">Default content</p>
+        <q-input v-model="consuming" type="date" readonly></q-input>
     </div>
 </div>
 <div class="row">
