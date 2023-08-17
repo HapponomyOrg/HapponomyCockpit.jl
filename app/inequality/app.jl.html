@@ -79,11 +79,14 @@
                 <q-input v-model="guaranteed_income" label="Guaranteed income" type="Number" :step="100"></q-input>
             </q-card-section>
             <q-card-section>
-                <div v-for="dem_tier, index in dem_tiers">
-                    <q-input v-model="dem_percentages[index]" label="" type="Number"></q-input><br/>
+                <div class="row" v-for="dem_tier, index in dem_tiers">
+                    
+                    <q-input v-model="dem_tiers[index]" label="Demurrage tier {{index + 1}}" type="Number"></q-input>
+                    <p>&nbsp;</p>
+                    <q-input v-model="dem_percentages[index]" label="Demurrage" type="Number"></q-input>
                 </div>
-                <q-btn color="primary" style="margin-top:5px;margin-bottom:5px;" v-on:click="add_dem_tier = !add_dem_tier" :loading="processing" text-color="black" label="ADD" />
-                <q-btn color="primary" style="margin-top:5px;margin-bottom:5px;" v-on:click="remove_dem_tier = !remove_dem_tier" :loading="processing" text-color="black" label="REMOVE" />
+                <q-btn color="primary" style="margin-top:5px;margin-bottom:5px;" v-on:click="add_dem_tier = !add_dem_tier" :loading="processing" label="Add tier" />
+                <q-btn color="primary" style="margin-top:5px;margin-bottom:5px;" v-on:click="remove_dem_tier = !remove_dem_tier" :loading="processing" label="Remove tier" />
             </q-card-section>
         </q-card>
     </div>
