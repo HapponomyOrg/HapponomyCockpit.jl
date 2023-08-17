@@ -76,15 +76,18 @@
         </q-card>
         <q-card class="full-width" v-if="sim_model==sim_model_options[1]">
             <q-card-section>
+                <h3>SuMSy parameters</h3>
                 <q-input v-model="guaranteed_income" label="Guaranteed income" type="Number" :step="100"></q-input>
             </q-card-section>
             <q-card-section>
                 <div class="row" v-for="dem_tier, index in dem_tiers">
                     
-                    <q-input v-model="dem_tiers[index]" label="Demurrage tier {{index + 1}}" type="Number"></q-input>
+                    <q-input v-model="dem_tiers[index]" dense label="Demurrage tier {{index + 1}}" type="Number" :step="1000"></q-input>
                     <p>&nbsp;</p>
-                    <q-input v-model="dem_percentages[index]" label="Demurrage" type="Number"></q-input>
+                    <q-input v-model="dem_percentages[index]" dense label="Demurrage" type="Number" suffix="%"></q-input>
                 </div>
+            </q-card-section>
+            <q-card-section>
                 <q-btn color="primary" style="margin-top:5px;margin-bottom:5px;" v-on:click="add_dem_tier = !add_dem_tier" :loading="processing" label="Add tier" />
                 <q-btn color="primary" style="margin-top:5px;margin-bottom:5px;" v-on:click="remove_dem_tier = !remove_dem_tier" :loading="processing" label="Remove tier" />
             </q-card-section>
