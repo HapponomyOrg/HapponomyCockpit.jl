@@ -2,7 +2,7 @@ module Overshoot
 
 using Mongoc
 
-pw = "kYGapDxZDM6Jkp4NTpcvRVsnMKgbPKXA7wJwrfPTTgioGupEdmKZd"
+pw = ""
 uri = "mongodb+srv://stef:" * pw * "@happonomycluster.rftavk7.mongodb.net/?retryWrites=true&w=majority"
 suffix = "&tlsCAFile=/usr/local/etc/openssl/cert.pem" # Probably needs to change when deployed on a server.
 
