@@ -40,7 +40,7 @@ end
     @out prev_demurrage_free::Int = 0
     @in demurrage_free::Int = 0
     @in transactional::Bool = false
-    @in dem_tiers = [[0, 1]]
+    @in dem_tiers = [[0, 1.0]]
     @in add_dem_tier = false
     @in remove_dem_tier = false
     @in sumsy_initial_wealth::Int = 0
