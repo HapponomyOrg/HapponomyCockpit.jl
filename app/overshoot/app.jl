@@ -59,7 +59,8 @@ OVERSHOOT_DATES = [
     Date(2020, 8, 22),
     Date(2021, 7, 29),
     Date(2022, 7, 28),
-    Date(2023, 8, 2)
+    Date(2023, 8, 2),
+    Date(2024, 8, 1)
 ]
 
 function create_df()
@@ -223,11 +224,11 @@ df = create_df()
     @out consumed_on = calculate_used_date(today(), df)
     @out consuming = calculate_using_date(today(), df)
 
-    @in day_weights = PlotData[PlotData(x = df.year, y = df.rounded_weight)]
-    @in overshoot_days = PlotData(x = df.year, y = df.rounded_overshoot_days)
-    @in cumulative_overshoot_days = PlotData(x = df.year, y = df.rounded_cumulative_overshoot_days)
+    @out day_weights = PlotData(x = df.year, y = df.rounded_weight)
+    @out overshoot_days = PlotData(x = df.year, y = df.rounded_overshoot_days)
+    @out cumulative_overshoot_days = PlotData(x = df.year, y = df.rounded_cumulative_overshoot_days)
     
-    @in table = DataTable(filter_df(df))
+    @out table = DataTable(filter_df(df))
 
     @onchange consumption_date begin
         consumed_on = calculate_used_date(consumption_date)
